@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddRegionComponent } from './add-region/add-region.component';
@@ -13,7 +14,8 @@ import { RegionRoutingModule } from './region-routing.module';
   ],
   imports: [
     CommonModule,
-    RegionRoutingModule
+    RegionRoutingModule,
+    FormsModule
   ]
 })
 export class RegionModule { }

@@ -1,4 +1,6 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Shipper } from 'src/interface/shipper';
 
 @Component({
   selector: 'app-add-shipper',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddShipperComponent implements OnInit {
 
+  shipper:Shipper={
+    name:'',
+    phone:''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  insertShipper(form:NgForm){
+    console.log(form.value)
+  }
+
+  resetPage(form:NgForm){
+    form.reset();
+  }
+
 
 }

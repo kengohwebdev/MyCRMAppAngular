@@ -1,1 +1,26 @@
-<p>list-product works!</p>
+<h1 class="display-4">Products</h1>
+<hr/>
+<table class="table table-striped table-dark table-hover table-bordered table-sm">
+    <thead class="table-success">
+        <tr>
+            <th>Vendor</th>
+            <th>Category</th>
+            <th>unitPrice</th>
+            <th>unitsInStock</th>
+            <th>unitsOnOrder</th>
+            <th>reorderLevel</th>
+            <th>discontinued</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.vendorId}}</td>
+            <td>{{p.categoryId}}</td>
+            <td>{{p.unitPrice}}</td>
+            <td>{{p.unitsInStock}}</td>
+            <td>{{p.unitsOnOrder}}</td>
+            <td>{{p.reorderLevel}}</td>
+            <td>{{p.discontinued}}</td>
+        </tr>
+    </tbody>
+</table>

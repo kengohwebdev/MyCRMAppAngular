@@ -9,6 +9,13 @@ export class ListRegionComponent implements OnInit {
 
   constructor() { }
 
+  regions =[
+    {id:1,name:"SouthEast Asia"},
+    {id:2,name:"Northern"},
+    {id:3,name:"Southern"},
+
+  ]
+
   ngOnInit(): void {
   }
 

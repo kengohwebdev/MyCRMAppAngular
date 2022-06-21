@@ -1,5 +1,4 @@
 import { VendorModule } from './vendor/vendor.module';
-
 import { CategoryModule } from './category/category.module';
 import { EmployeeModule } from './employee/employee.module';
 import { NgModule } from '@angular/core';

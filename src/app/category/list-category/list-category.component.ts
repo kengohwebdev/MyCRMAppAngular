@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ListCategoryComponent implements OnInit {
 
   constructor() { }
+  category =[
+    {id:1, name:"Vegetable", description:"Local Farm"},
+    {id:2, name:"Seafood", description:"Imported"},
+    {id:3, name:"Meat", description:"Local Produce"}
+  ]
 
   ngOnInit(): void {
   }

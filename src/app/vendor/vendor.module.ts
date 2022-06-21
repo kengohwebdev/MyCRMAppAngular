@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { VendorRoutingModule } from './vendor-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,8 @@ import { ListVendorComponent } from './list-vendor/list-vendor.component';
   ],
   imports: [
     CommonModule,
-    VendorRoutingModule
+    VendorRoutingModule,
+    FormsModule
   ]
 })
 export class VendorModule { }

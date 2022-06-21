@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ShipperRoutingModule } from './shipper-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,8 @@ import { AddShipperComponent } from './add-shipper/add-shipper.component';
   ],
   imports: [
     CommonModule,
-    ShipperRoutingModule
+    ShipperRoutingModule,
+    FormsModule
   ]
 })
 export class ShipperModule { }

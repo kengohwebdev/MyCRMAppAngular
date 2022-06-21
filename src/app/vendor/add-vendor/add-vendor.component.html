@@ -1,1 +1,65 @@
-<p>add-vendor works!</p>
+<form #addVendor="ngForm" (submit) ="insertVendor(addVendor)" >
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="txtName">Name</label>
+                <input id="txtName" [(ngModel)]="vendor.name" name="name" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="txtCity">City</label>
+                <input id="txtCity" [(ngModel)]="vendor.city" name="city" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="txtCountry">Country</label>
+                <input id="txtCountry" [(ngModel)]="vendor.country" name="country" class="form-control"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="ddlRegion">Region</label>
+                <select id="ddlRegion" [(ngModel)]="vendor.regionId" name="regionId" class="form-control">
+                <option value="0">SouthEast Asia</option>
+                <option value="1">Northern</option>
+                <option value="2">Southern</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="txtMobile">Mobile</label>
+                <input type="txtMobile" id="txtMobile" [(ngModel)]="vendor.mobile" name="mobile" class="form-control"/>    
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="txtEmail">Email</label>
+                <input id="txtEmail" [(ngModel)]="vendor.emailId" name="emailId" class="form-control"/>
+            </div>
+        </div>
+    </div>
+        
+
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="ddlIsActive">Activation</label>
+                <select id="ddlIsActive" [(ngModel)]="vendor.isActive" name="isActive" class="form-control">
+                <option value="True">Activated</option>
+                <option value="False">Deactivated</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    
+      
+    <input type="submit" value="Add Vendor" class="btn btn-primary"/>
+    <input type="button" value="Cancel" class="btn btn-danger" (click)="resetPage(addVendor)"/>
+</form>

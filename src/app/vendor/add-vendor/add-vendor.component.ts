@@ -1,4 +1,7 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { first, firstValueFrom } from 'rxjs';
+import { Vendor } from 'src/interface/vendor';
 
 @Component({
   selector: 'app-add-vendor',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddVendorComponent implements OnInit {
 
+  vendor:Vendor={
+    regionId:0,
+    name:'',
+    city:'',
+    country:'',
+    mobile:'',
+    emailId:'',
+    isActive:true,
+    region:firstValueFrom
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+insertVendor(form:NgForm){
+  console.log(form.value)
+}
+
+  resetPage(form:NgForm){
+    form.reset();
   }
 
 }

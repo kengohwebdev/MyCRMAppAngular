@@ -1,1 +1,20 @@
-<p>list-employee works!</p>
+<h1 class="display-4">Employees</h1>
+<hr/>
+<table class="table table-striped table-dark table-hover table-bordered table-sm">
+    <thead class="table-success">
+        <tr>
+            <th>TitleOfCourtesy</th>
+            <th>FirstName</th>
+            <th>Salary</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of employees">
+            <td>{{e.titleOfCourtesy}}</td>
+            <td>{{e.firstName}}</td>
+            <td>{{e.lastName}}</td>
+            <td>{{e.title}}</td>
+        </tr>
+    </tbody>
+</table>
