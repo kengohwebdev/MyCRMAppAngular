@@ -1,9 +1,10 @@
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddRegionComponent } from './add-region/add-region.component';
 import { ListRegionComponent } from './list-region/list-region.component';
 import { RegionRoutingModule } from './region-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,7 +16,9 @@ import { RegionRoutingModule } from './region-routing.module';
   imports: [
     CommonModule,
     RegionRoutingModule,
-    FormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+
 })
 export class RegionModule { }
