@@ -1,8 +1,8 @@
-import { Region } from "./region";
 
 export interface Employee{
     firstName:string,
     lastName:string,
+    fullName:string,
     title:string,
     titleOfCourtesy:string,
     birthDate:Date,
@@ -14,5 +14,7 @@ export interface Employee{
     regionId:number,
     reportsTo:number,
     photoPath:string,
-    region:Region
+    regionName:string,
+    id:number
+    
 }

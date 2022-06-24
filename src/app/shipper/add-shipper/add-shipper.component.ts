@@ -10,6 +10,7 @@ import { Shipper } from 'src/interface/shipper';
 export class AddShipperComponent implements OnInit {
 
   shipper:Shipper={
+    id:0,
     name:'',
     phone:''
   }

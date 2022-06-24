@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Region } from 'src/interface/region';
+import { RegionService } from 'src/services/region.service';
 
 @Component({
   selector: 'app-list-region',
@@ -7,16 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRegionComponent implements OnInit {
 
-  constructor() { }
-
-  regions =[
-    {id:1,name:"SouthEast Asia"},
-    {id:2,name:"Northern"},
-    {id:3,name:"Southern"},
-
-  ]
+  regionCollection:Region[]=[]
+  constructor(private regionService:RegionService, private router:Router) { }
 
   ngOnInit(): void {
+   this.getData();
   }
 
+
+  
+  getData(){
+    this.regionService.getAllRegion().subscribe((data)=>{
+      this.regionCollection=data;
+    });
+  }
+
+
+  deleteRegion(id:any){
+   this.regionService.deleteRegion(id).subscribe((d:any)=>{
+    this.getData();
+   });
+  }
+
+  updateRegionById(id:any){
+    this.router.navigate(['region/edit/'+id]);
+     }
+
+
+
 }
+
+

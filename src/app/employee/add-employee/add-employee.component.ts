@@ -1,9 +1,7 @@
-import { Region } from './../../../interface/region';
-
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/interface/employee';
-import { firstValueFrom } from 'rxjs';
+
 
 @Component({
   selector: 'app-add-employee',
@@ -12,9 +10,12 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AddEmployeeComponent implements OnInit {
 
+
+
   employee:Employee={
     firstName:'',
     lastName:'',
+    fullName:'',
     title:'',
     titleOfCourtesy:'',
     birthDate:new Date(),
@@ -26,7 +27,8 @@ export class AddEmployeeComponent implements OnInit {
     reportsTo:0,
     photoPath:'',
     phone:'',
-    region:firstValueFrom
+    id:0,
+    regionName:''
   }
  
   constructor() { }

@@ -3,18 +3,39 @@
 <table class="table table-striped table-dark table-hover table-bordered table-sm">
     <thead class="table-success">
         <tr>
-            <th>TitleOfCourtesy</th>
-            <th>FirstName</th>
-            <th>Salary</th>
+            <th>S.N.</th>
+            <th>Title of Courtesy</th>
+            <th>Full Name</th>
             <th>Title</th>
+            <!-- <th>Hire Date</th>
+            <th>Reports To</th> -->
+            <th>Phone</th>
+            <th>Birth Date</th>
+            <th>Address</th>
+            <th>City</th>
+            <!-- <th>Postal Code</th> -->
+            <th>Region Name</th>
+            <th>Options</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let e of employees">
+     </thead>
+     <tbody>
+        <tr *ngFor="let e of empCollection; index as i">
+            <td>{{i+1}}</td>
             <td>{{e.titleOfCourtesy}}</td>
-            <td>{{e.firstName}}</td>
-            <td>{{e.lastName}}</td>
+            <td>{{e.fullName}}</td>
             <td>{{e.title}}</td>
+            <!-- <td>{{e.hireDate}}</td>
+            <td>{{e.reportsTo}}</td> -->
+            <td>{{e.phone}}</td>
+            <td>{{e.birthDate}}</td>
+            <td>{{e.address}}</td>
+            <td>{{e.city}}</td>
+            <!-- <td>{{e.postalCode}}</td> -->
+            <td>{{e.regionName}}</td>
+            <td>
+                <input type="button" class="btn btn-link" value="Edit" (click)="updateEmployeeById(e.id)" />
+                <input type="button" class="btn btn-danger" value="Delete" (click)="deleteEmployee(e.id)" />
+            </td>
         </tr>
-    </tbody>
-</table>
+     </tbody>
+    </table>

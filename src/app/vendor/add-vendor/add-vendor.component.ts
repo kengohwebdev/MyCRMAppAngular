@@ -18,7 +18,8 @@ export class AddVendorComponent implements OnInit {
     mobile:'',
     emailId:'',
     isActive:true,
-    region:firstValueFrom
+    id:0,
+    regionName:''
   }
 
   constructor() { }

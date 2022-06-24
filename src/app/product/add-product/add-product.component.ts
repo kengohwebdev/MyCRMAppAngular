@@ -12,6 +12,7 @@ import { Product } from 'src/interface/product';
 export class AddProductComponent implements OnInit {
 
   product:Product={
+    id:0,
     name:'',
     vendorId:0,
     categoryId:0,
@@ -20,7 +21,9 @@ export class AddProductComponent implements OnInit {
     unitsInStock:0,
     unitsOnOrder:0,
     reorderLevel:0,
-    discontinued:false
+    discontinued:false,
+    categoryName:'',
+    vendorName:''
     
     
   }

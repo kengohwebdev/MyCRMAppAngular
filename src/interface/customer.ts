@@ -1,12 +1,14 @@
-import { Region } from './region';
+
 export interface Customer{
+    id:number,
     name:string,
     title:string,
     address:string,
     city:string,
     regionId:number,
-    postalCode:number,
+    postalCode:string,
     country:string,
     phone:string,
-    region:Region
+    regionName:string
+
 }

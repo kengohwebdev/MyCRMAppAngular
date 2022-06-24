@@ -1,6 +1,7 @@
 import { Vendor } from './vendor';
 import { Category } from './category';
 export interface Product{
+    id:number,
     name:string,
     vendorId:number,
     categoryId:number,
@@ -10,6 +11,6 @@ export interface Product{
     unitsOnOrder:number,
     reorderLevel:number,
     discontinued:boolean,
-    // category:Category,
-    // vendor:Vendor
+    categoryName:string,
+    vendorName:string
 }

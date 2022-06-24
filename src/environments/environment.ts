@@ -1,9 +1,21 @@
+import { Category } from './../interface/category';
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey:'https://localhost:7024/api/',
+  apiControllers:
+  {
+    employee:"Employee/",
+    region:"Region/",
+    category:"Category/",
+    product:"Product/",
+    shipper:"Shipper/",
+    vendor:"Vendor/",
+    customer:"Customer/"
+  }
 };
 
 /*

@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegionModule } from './region/region.module';
+import { CustomerModule } from './customer/customer.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RegionModule } from './region/region.module';
     RegionModule,
     EmployeeModule,
     CategoryModule,
-    VendorModule
+    VendorModule,
+    CustomerModule
     
   ],
   providers: [],

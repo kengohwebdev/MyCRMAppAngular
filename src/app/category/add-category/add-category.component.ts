@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddCategoryComponent implements OnInit {
 
   category:Category={
+    id:0,
     name:'',
     description:''
   }
