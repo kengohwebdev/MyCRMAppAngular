@@ -12,19 +12,6 @@
     <div class="row">
         <div class="col-4">
             <div class="form-group mb-3">
-                <label>Enter Customer Name</label>
-                <input type="text" formControlName="customerName" class="form-control" />
-            
-                <div class="text-danger" *ngIf="addCustomerForm.get('customerName')?.hasError('required') && addCustomerForm.get('customerName')?.touched">
-                Customer is required
-                </div>
-                <div class="text-danger" *ngIf="addCustomerForm.get('customerName')?.hasError('minlength') && addCustomerForm.get('customerName')?.touched">
-                Minimum 4 characters are required
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="form-group mb-3">
                 <label>Enter Customer Title</label>
                 <input type="text" formControlName="customerTitle" class="form-control" />
 
@@ -34,6 +21,19 @@
                     <div class="text-danger" *ngIf="addCustomerForm.get('customerTitle')?.hasError('minlength') && addCustomerForm.get('customerTitle')?.touched">
                     Minimum 2 characters are required
                     </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Customer Name</label>
+                <input type="text" formControlName="customerName" class="form-control" />
+            
+                <div class="text-danger" *ngIf="addCustomerForm.get('customerName')?.hasError('required') && addCustomerForm.get('customerName')?.touched">
+                Customer is required
+                </div>
+                <div class="text-danger" *ngIf="addCustomerForm.get('customerName')?.hasError('minlength') && addCustomerForm.get('customerName')?.touched">
+                Minimum 4 characters are required
+                </div>
             </div>
         </div>
         <div class="col-4">
@@ -60,20 +60,26 @@
         </div>
         <div class="col-4">
             <div class="form-group mb-3">
+                <label>Enter Customer City</label>
+                <input type="text" formControlName="customerCity" class="form-control" />
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
                 <label>Enter Customer Country</label>
                 <input type="text" formControlName="customerCountry" class="form-control" />
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
     <div class="col-4">
         <div class="form-group mb-3">
             <label>Enter Customer Region Id</label>
             <input type="text" formControlName="customerRegionId" class="form-control" />
         </div>
     </div>
-    </div>
+    </div> -->
 
 
 

@@ -6,16 +6,16 @@
 
 <h1 class="display-4">Edit Region</h1>
 <hr/>
-<form [formGroup]="editRegionForm" >
+<form [formGroup]="addRegionForm" >
     <div class="form-group mb-3">
         <label>Enter Region Name</label>
     <input type="text" formControlName="regionName" class="form-control" />
-<div class="text-danger" *ngIf="editRegionForm.get('regionName')?.hasError('required') && editRegionForm.get('regionName')?.touched">
+<div class="text-danger" *ngIf="addRegionForm.get('regionName')?.hasError('required') && addRegionForm.get('regionName')?.touched">
     Region is required
 </div>
-<div class="text-danger" *ngIf="editRegionForm.get('regionName')?.hasError('minlength') && editRegionForm.get('regionName')?.touched">
+<div class="text-danger" *ngIf="addRegionForm.get('regionName')?.hasError('minlength') && addRegionForm.get('regionName')?.touched">
     Minimum 4 characters are required
 </div>
 </div>
-<input type="button" class="btn btn-primary"  [disabled]="!editRegionForm.valid"  value="Edit Region" (click)="updateRegion()" />
+<input type="button" class="btn btn-primary"  [disabled]="!addRegionForm.valid"  value="Edit Region" (click)="updateRegion()" />
 </form>

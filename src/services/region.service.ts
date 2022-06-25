@@ -22,12 +22,9 @@ export class RegionService {
   }
 
   getRegionById(id:any):Observable<Region>{
-    return this.httpClient.get<Region>(this.url+id);
+    return this.httpClient.get<Region>(this.url+"/"+id);
   }
 
-  getRegionForEdit(id:any):Observable<Region>{
-    return this.httpClient.get<Region>(this.url+id);
-  }
 
   updateRegion(region:Region):Observable<any>
   {
@@ -37,6 +34,6 @@ export class RegionService {
   
   deleteRegion(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

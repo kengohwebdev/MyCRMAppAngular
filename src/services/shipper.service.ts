@@ -23,12 +23,9 @@ export class ShipperService {
   }
 
   getShipperById(id:any):Observable<Shipper>{
-    return this.httpClient.get<Shipper>(this.url+id);
+    return this.httpClient.get<Shipper>(this.url+"/"+id);
   }
 
-  getShipperForEdit(id:any):Observable<Shipper>{
-    return this.httpClient.get<Shipper>(this.url+id);
-  }
 
   updateShipper(shipper:Shipper):Observable<any>
   {
@@ -38,6 +35,6 @@ export class ShipperService {
   
   deleteShipper(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

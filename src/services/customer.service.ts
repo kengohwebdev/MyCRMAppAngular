@@ -23,11 +23,7 @@ export class CustomerService {
   }
 
   getCustomerById(id:any):Observable<Customer>{
-    return this.httpClient.get<Customer>(this.url+id);
-  }
-
-  getCustomerForEdit(id:any):Observable<Customer>{
-    return this.httpClient.get<Customer>(this.url+id);
+    return this.httpClient.get<Customer>(this.url+"/"+id);
   }
 
   updateCustomer(customer:Customer):Observable<any>
@@ -38,6 +34,6 @@ export class CustomerService {
   
   deleteCustomer(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

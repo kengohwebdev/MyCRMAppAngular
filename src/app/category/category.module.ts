@@ -1,25 +1,25 @@
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CategoryRoutingModule } from './category-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryRoutingModule } from './category-routing.module';
+import { CategoryService } from 'src/services/category.service';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { ListCategoryComponent } from './list-category/list-category.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { CategoryService } from 'src/services/category.service';
-
 
 
 @NgModule({
   declarations: [
     AddCategoryComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
+    CategoryRoutingModule,
     HttpClientModule,
     RouterModule
   ],

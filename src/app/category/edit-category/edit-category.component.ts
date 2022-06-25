@@ -1,14 +1,16 @@
-import { CategoryService } from './../../../services/category.service';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm, FormBuilder, FormControl } from '@angular/forms';
 import { Category } from './../../../interface/category';
-import { Component, OnInit } from '@angular/core';
+import { CategoryService } from './../../../services/category.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-add-category',
-  templateUrl: './add-category.component.html',
-  styleUrls: ['./add-category.component.scss']
+  selector: 'app-edit-category',
+  templateUrl: './edit-category.component.html',
+  styleUrls: ['./edit-category.component.scss']
 })
-export class AddCategoryComponent implements OnInit {
+export class EditCategoryComponent implements OnInit {
 
   addCategoryForm:FormGroup;
   category:Category={
@@ -18,8 +20,11 @@ export class AddCategoryComponent implements OnInit {
   }
   isSuccessful:boolean=false;
 
-  constructor(private builder:FormBuilder, private categoryService:CategoryService) 
+  constructor(private activatedRoute:ActivatedRoute, private builder:FormBuilder, private categoryService:CategoryService) 
   {
+    this.activatedRoute.params.subscribe(d=>{
+      this.category.id=d["id"]      
+    })
     this.addCategoryForm = builder.group({
       // "categoryId":new FormControl('',[]),
       "categoryName":new FormControl('',[]),
@@ -30,18 +35,11 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // insertCategory(form:NgForm){
-  //   console.log(form.value)
-  // }
-  // resetPage(form:NgForm){
-  //   form.reset();
-  // }
-
-  saveCategory(){
+  updateCategory(){   
     // this.category.id=this.addCategoryForm.value["customerId"];
     this.category.name= this.addCategoryForm.value["categoryName"];
     this.category.description=this.addCategoryForm.value["categoryDescription"]
-    this.categoryService.addCategory(this.category).subscribe((data:any)=>{
+    this.categoryService.updateCategory(this.category).subscribe((data:any)=>{
       this.isSuccessful=true;
     });
   }

@@ -8,13 +8,13 @@ export const environment = {
   apiKey:'https://localhost:7024/api/',
   apiControllers:
   {
-    employee:"Employee/",
-    region:"Region/",
-    category:"Category/",
-    product:"Product/",
-    shipper:"Shipper/",
-    vendor:"Vendor/",
-    customer:"Customer/"
+    employee:"Employee",
+    region:"Region",
+    category:"Category",
+    product:"Product",
+    shipper:"Shipper",
+    vendor:"Vendor",
+    customer:"Customer"
   }
 };
 

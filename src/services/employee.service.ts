@@ -21,12 +21,10 @@ url:string= environment.apiKey+environment.apiControllers.employee;
   }
 
   getEmployeeById(id:any):Observable<Employee>{
-    return this.httpClient.get<Employee>(this.url+id);
+    return this.httpClient.get<Employee>(this.url+"/"+id);
   }
 
-  getEmployeeForEdit(id:any):Observable<Employee>{
-    return this.httpClient.get<Employee>(this.url+id);
-  }
+
 
   updateEmployee(employee:Employee):Observable<any>
   {
@@ -36,6 +34,6 @@ url:string= environment.apiKey+environment.apiControllers.employee;
   
   deleteEmployee(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

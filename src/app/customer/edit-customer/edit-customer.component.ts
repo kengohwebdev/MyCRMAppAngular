@@ -29,15 +29,15 @@ export class EditCustomerComponent implements OnInit {
   constructor(private builder:FormBuilder, private customerService:CustomerService) 
   { 
     this.addCustomerForm = builder.group({
-      'customerName':new FormControl(null,[Validators.required,Validators.minLength(4)]),
-      'customerTitle':new FormControl(null,[Validators.required,Validators.minLength(2)]),
-      'customerPhone':new FormControl(null,[]),
-      'customerAddress':new FormControl(null,[]),
-      'customerPostalCode':new FormControl(null,[]),
-      'customerCity':new FormControl(null,[]),
-      'customerCountry':new FormControl(null,[]),
-      'customerRegion':new FormControl(null,[]),
-      'customerRegionId':new FormControl(null,[])
+      "customerName":new FormControl('',[Validators.required,Validators.minLength(4)]),
+      "customerTitle":new FormControl('',[Validators.required,Validators.minLength(2)]),
+      "customerPhone":new FormControl('',[Validators.required]),
+      "customerAddress":new FormControl('',[Validators.required]),
+      "customerPostalCode":new FormControl('',[Validators.required]),
+      "customerCity":new FormControl('',[Validators.required]),
+      "customerCountry":new FormControl('',[Validators.required]),
+      // "customerRegion":new FormControl('',[Validators.required]),
+      // "customerRegionId":new FormControl('',[Validators.required])
     });
   }
 
@@ -53,9 +53,9 @@ export class EditCustomerComponent implements OnInit {
     this.customer.postalCode=this.addCustomerForm.value["customerPostalCode"];
     this.customer.city=this.addCustomerForm.value["customerCity"];
     this.customer.country=this.addCustomerForm.value["customerCountry"];
-    this.customer.regionName=this.addCustomerForm.value["customerRegion"];
+    // this.customer.regionName=this.addCustomerForm.value["customerRegion"];
     this.customer.regionId=this.addCustomerForm.value["customerRegionId"];
-    this.customerService.getCustomerForEdit(this.customer).subscribe((d:any)=>{
+    this.customerService.updateCustomer(this.customer).subscribe((d:any)=>{
     this.isSuccessful=true;
     });
 

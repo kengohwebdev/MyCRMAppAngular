@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Region } from 'src/interface/region';
 import { RegionService } from 'src/services/region.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-region',
@@ -32,7 +32,7 @@ export class ListRegionComponent implements OnInit {
    });
   }
 
-  updateRegionById(id:any){
+  editRegion(id:any){
     this.router.navigate(['region/edit/'+id]);
      }
 

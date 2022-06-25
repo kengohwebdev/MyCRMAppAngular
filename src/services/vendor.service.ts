@@ -22,12 +22,9 @@ export class VendorService {
   }
 
   getVendorById(id:any):Observable<Vendor>{
-    return this.httpClient.get<Vendor>(this.url+id);
+    return this.httpClient.get<Vendor>(this.url+"/"+id);
   }
 
-  getVendorForEdit(id:any):Observable<Vendor>{
-    return this.httpClient.get<Vendor>(this.url+id);
-  }
 
   updateVendor(vendor:Vendor):Observable<any>
   {
@@ -37,6 +34,6 @@ export class VendorService {
   
   deleteVendor(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

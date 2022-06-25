@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegionModule } from './region/region.module';
 import { CustomerModule } from './customer/customer.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,15 +15,14 @@ import { CustomerModule } from './customer/customer.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
     RegionModule,
-    EmployeeModule,
-    CategoryModule,
     VendorModule,
-    CustomerModule
-    
+    CategoryModule,
+    CustomerModule,
+    EmployeeModule,
+    AppRoutingModule  
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

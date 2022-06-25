@@ -23,11 +23,7 @@ export class CategoryService {
   }
 
   getCategoryById(id:any):Observable<Category>{
-    return this.httpClient.get<Category>(this.url+id);
-  }
-
-  getCategoryForEdit(id:any):Observable<Category>{
-    return this.httpClient.get<Category>(this.url+id);
+    return this.httpClient.get<Category>(this.url+"/"+id);
   }
 
   updateCategory(category:Category):Observable<any>
@@ -38,6 +34,6 @@ export class CategoryService {
   
   deleteCategory(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }

@@ -22,11 +22,7 @@ export class ProductService {
   }
 
   getProductById(id:any):Observable<Product>{
-    return this.httpClient.get<Product>(this.url+id);
-  }
-
-  getProductForEdit(id:any):Observable<Product>{
-    return this.httpClient.get<Product>(this.url+id);
+    return this.httpClient.get<Product>(this.url+"/"+id);
   }
 
   updateProduct(product:Product):Observable<any>
@@ -37,6 +33,6 @@ export class ProductService {
   
   deleteProduct(id:any):Observable<any>
   {
-    return this.httpClient.delete(this.url+id);
+    return this.httpClient.delete(this.url+"/"+id);
   }
 }
