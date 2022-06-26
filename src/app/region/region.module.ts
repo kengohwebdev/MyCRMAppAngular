@@ -20,10 +20,10 @@ import { RouterModule, Routes } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RegionRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule
+    RegionRoutingModule,
+    RouterModule,
+    HttpClientModule
   ],
   providers:[RegionService]
 })

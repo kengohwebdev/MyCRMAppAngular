@@ -20,7 +20,8 @@ export const environment = {
     shipper:"Shipper",
     vendor:"Vendor",
     customer:"Customer",
-    product:"Product"
+    product:"Product",
+    accountsignup:"account/signup"
   }
 };
 
