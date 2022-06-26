@@ -28,13 +28,13 @@ export class AddCustomerComponent implements OnInit {
   constructor(private builder:FormBuilder, private customerService:CustomerService) 
   { 
     this.addCustomerForm = builder.group({
-      "customerName":new FormControl('',[Validators.required,Validators.minLength(4)]),
-      "customerTitle":new FormControl('',[Validators.required,Validators.minLength(2)]),
-      "customerPhone":new FormControl('',[Validators.required]),
-      "customerAddress":new FormControl('',[Validators.required]),
-      "customerPostalCode":new FormControl('',[Validators.required]),
-      "customerCity":new FormControl('',[Validators.required]),
-      "customerCountry":new FormControl('',[Validators.required]),
+      "customerName":new FormControl('',[]),
+      "customerTitle":new FormControl('',[]),
+      "customerPhone":new FormControl('',[]),
+      "customerAddress":new FormControl('',[]),
+      "customerPostalCode":new FormControl('',[]),
+      "customerCity":new FormControl('',[]),
+      "customerCountry":new FormControl('',[]),
       // 'customerRegion':new FormControl('',[])
     });
   }
@@ -52,7 +52,7 @@ export class AddCustomerComponent implements OnInit {
     this.customer.city=this.addCustomerForm.value["customerCity"];
     this.customer.country=this.addCustomerForm.value["customerCountry"];
     // this.customer.regionName=this.addCustomerForm.value["customerRegion"];
-    this.customerService.addCustomer(this.customer).subscribe((d:any)=>{
+    this.customerService.addCustomer(this.customer).subscribe((data:any)=>{
       this.isSuccessful=true;
     });
 

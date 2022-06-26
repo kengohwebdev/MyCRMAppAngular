@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Customer } from 'src/interface/customer';
@@ -26,8 +27,12 @@ export class EditCustomerComponent implements OnInit {
   }
   isSuccessful:boolean=false;
 
-  constructor(private builder:FormBuilder, private customerService:CustomerService) 
+  constructor(private activatedRoute:ActivatedRoute,private builder:FormBuilder, private customerService:CustomerService) 
   { 
+
+    activatedRoute.params.subscribe(d=>{
+      this.customer.id=d["id"]      
+    })
     this.addCustomerForm = builder.group({
       "customerName":new FormControl('',[Validators.required,Validators.minLength(4)]),
       "customerTitle":new FormControl('',[Validators.required,Validators.minLength(2)]),
@@ -45,7 +50,6 @@ export class EditCustomerComponent implements OnInit {
   }
 
   updateCustomer(){
-    this.customer.id=0;
     this.customer.name=this.addCustomerForm.value["customerName"];
     this.customer.title=this.addCustomerForm.value["customerTitle"];
     this.customer.phone=this.addCustomerForm.value["customerPhone"];
@@ -54,8 +58,8 @@ export class EditCustomerComponent implements OnInit {
     this.customer.city=this.addCustomerForm.value["customerCity"];
     this.customer.country=this.addCustomerForm.value["customerCountry"];
     // this.customer.regionName=this.addCustomerForm.value["customerRegion"];
-    this.customer.regionId=this.addCustomerForm.value["customerRegionId"];
-    this.customerService.updateCustomer(this.customer).subscribe((d:any)=>{
+    // this.customer.regionId=this.addCustomerForm.value["customerRegionId"];
+    this.customerService.updateCustomer(this.customer).subscribe((data:any)=>{
     this.isSuccessful=true;
     });
 

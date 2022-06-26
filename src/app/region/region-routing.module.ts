@@ -7,7 +7,6 @@ import { ListRegionComponent } from "./list-region/list-region.component";
 const routes:Routes=[
     {path:'list', component:ListRegionComponent },
     {path:'add', component:AddRegionComponent },
-    {path:'edit',component:EditRegionComponent},
     {path:'edit:/id',component:EditRegionComponent}
 ]
 

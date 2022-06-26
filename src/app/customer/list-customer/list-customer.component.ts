@@ -24,7 +24,7 @@ export class ListCustomerComponent implements OnInit {
     })
   }
 
-  updateCustomerById(id:any){
+  editCustomer(id:any){
     this.router.navigate(['customer/edit/'+id]);
   }
   deleteCustomer(id:any){

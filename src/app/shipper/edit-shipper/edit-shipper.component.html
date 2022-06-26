@@ -1,0 +1,26 @@
+
+
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Shipper has been updated! </strong>
+    <a [routerLink]="'/shipper/list'"> Go to Shipper List</a>
+</div>
+
+<h1>Add Shipper</h1>
+<hr/>
+<form [formGroup]="addShipperForm">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Shipper Name</label>
+                <input type="text" formControlName="shipperName" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Shipper Phone</label>
+                <input type="text" formControlName="shipperPhone" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <input type="button" class="btn btn-primary" [disabled]="!addShipperForm.valid" value="Update Shipper" (click)="updateShipper()" />
+</form>

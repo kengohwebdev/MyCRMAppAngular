@@ -20,26 +20,24 @@ export class EditRegionComponent implements OnInit {
     name:''
   }
   isSuccessful:boolean=false;
-
   constructor(private activatedRoute:ActivatedRoute, private builder:FormBuilder, private regionService:RegionService) 
-  { 
-    this.activatedRoute.params.subscribe(d=>{
+  {
+    activatedRoute.params.subscribe(d=>{
       this.region.id=d["id"]      
     })
     this.addRegionForm = builder.group({
-      'regionName':new FormControl(null,[Validators.required,Validators.minLength(4)])
+      "regionName":new FormControl('',[])
     });
-  }
+   }
 
   ngOnInit(): void {
   }
 
-  updateRegion(){
-    this.region.name=this.addRegionForm.value["regionName"];
+  updateRegion(){   
+    this.region.name= this.addRegionForm.value["regionName"];
     this.regionService.updateRegion(this.region).subscribe((data:any)=>{
-    this.isSuccessful=true;
+      this.isSuccessful=true;
     });
-
   }
 
 }

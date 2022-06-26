@@ -1,97 +1,77 @@
-<input type="button" value="fill data" (click)="setData(addEmployee)" />
-<form #addEmployee="ngForm" (submit) ="editEmployee(addEmployee)" >
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Employee has been updated! </strong>
+    <a [routerLink]="'/employee/list'"> Go to Employee List</a>
+</div>
+
+<h1>Edit Employee</h1>
+<hr/>
+<form [formGroup]="addEmployeeForm">
     <div class="row">
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtTitle">Title</label>
-                <input id="txtTitle" [(ngModel)]="employee.title" name="title" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Enter title</label>
+                <input type="text" formControlName="employeeTitle" class="form-control"/>
             </div>
         </div>
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtFName">First Name</label>
-                <input id="txtFName" [(ngModel)]="employee.firstName" name="firstName" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Enter First Name</label>
+                <input type="text" formControlName="employeeFirstName" class="form-control"/>
             </div>
         </div>
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtLName">Last Name</label>
-                <input id="txtLName" [(ngModel)]="employee.lastName" name="lastName" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Enter Last Name</label>
+                <input type="text" formControlName="employeeLastName" class="form-control"/>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-4">
-            <div class="mb-3">
-            <label for="txtCourtesy">Title Of Courtesy</label>
-            <input id="txtCourtesy" [(ngModel)]="employee.titleOfCourtesy" name="titleOfCourtesy" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Title of Courtesy</label>
+                <input type="text" formControlName="employeeCourtesy" class="form-control"/>
             </div>
         </div>
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtHiredate">Hire Date</label>
-                <input type="date" id="txtHiredate" [(ngModel)]="employee.hireDate" name="hireDate" class="form-control"/>    
+            <div class="form-group mb-3">
+                <label>Enter Phone</label>
+                <input type="text" formControlName="employeePhone" class="form-control"/>
             </div>
         </div>
-       
         <div class="col-4">
-            <div class="mb-3">
-                    <label for="ddlReportsTo">Reports To</label>
-                    <select id="ddlReportsTo" [(ngModel)]="employee.reportsTo" name="reportsTo" class="form-control">
-                    <option value="0">Select</option>
-                    <option value="1">Olivia</option>
-                    <option value="2">Sarah</option>
-                    </select>
+            <div class="form-group mb-3">
+                <label>Enter Birth Date</label>
+                <input type="text" formControlName="employeeBirthdate" class="form-control"/>
             </div>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtPhone">Phone</label>
-                <input id="txtPhone" [(ngModel)]="employee.phone" name="phone" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Enter Address</label>
+                <input type="text" formControlName="employeeAddress" class="form-control"/>
             </div>
         </div>
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtBirthDate">Birth Date</label>
-                <input id="txtBirthDate" [(ngModel)]="employee.birthDate" name="title" class="form-control"/>
-            </div>
-        </div>
-     
-    </div>
-
-    <div class="row">
-        <div class="col-4">
-            <div class="mb-3">
-                <label for="txtAddress">Address</label>
-                <input id="txtAddress" [(ngModel)]="employee.address" name="address" class="form-control"/>
+            <div class="form-group mb-3">
+                <label>Enter City</label>
+                <input type="text" formControlName="employeeCity" class="form-control"/>
             </div>
         </div>
         <div class="col-4">
-            <div class="mb-3">
-                <label for="txtCity">City</label>
-                <input id="txtCity" [(ngModel)]="employee.city" name="city" class="form-control"/>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="mb-3">
-                <label for="txtPostalCode">Postal Code</label>
-                <input id="txtPostalCode" [(ngModel)]="employee.postalCode" name="postalCode" class="form-control"/>
+            <div class="form-group mb-3">
+                <label for="ddlRegionName">Enter Region</label>
+                <select id="ddlRegionName" formControlName="employeeRegionName" name="regionName" class="form-control"  >
+                    <option value="0">Choose a region</option> 
+                    <option value="1">Eastern</option>
+                    <option value="2">Western</option>  
+                    </select>  
             </div>
         </div>
     </div>
 
-    <div class="col-12">
-        <div class="mb-3">
-            <label for="txtPhotoPath">Photo Path</label>
-            <input id="textPhotoPath" [(ngModel)]="employee.photoPath" name="photoPath" class="form-control" type="file"/>
-        </div>
-    </div>
-
-      
-    <input type="submit" value="Edit Employee" class="btn btn-primary"/>
-    <input type="button" value="Cancel" class="btn btn-default"/>
+    <input type="button" class="btn btn-primary" [disabled]="!addEmployeeForm.valid" value="Save Employee" (click)="updateEmployee()"/>
 </form>
+

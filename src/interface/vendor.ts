@@ -1,8 +1,8 @@
 
 export interface Vendor{
-    regionName:string,
+    // regionName:string,
+    // regionId:number,
     id:number,
-    regionId:number,
     name:string,
     city:string,
     country:string,

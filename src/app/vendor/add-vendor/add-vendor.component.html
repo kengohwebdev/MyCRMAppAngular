@@ -1,4 +1,61 @@
-<form #addVendor="ngForm" (submit) ="insertVendor(addVendor)" >
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Vendor has been Saved! </strong>
+    <a [routerLink]="'/vendor/list'"> Go to Vendor List</a>
+</div>
+
+<h1>Add Vendor</h1>
+<hr/>
+<form [formGroup]="addVendorForm">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Vendor Name</label>
+                <input type="text" formControlName="vendorName" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Vendor Phone</label>
+                <input type="text" formControlName="vendorPhone" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Enter Vendor Email</label>
+                <input type="text" formControlName="vendorEmailId" class="form-control"/>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="form-group mb-3">
+            <label>Enter Vendor City</label>
+            <input type="text" formControlName="vendorCity" class="form-control"/>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group mb-3">
+            <label>Enter Vendor Country</label>
+            <input type="text" formControlName="vendorCountry" class="form-control"/>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group mb-3">
+            <label for="ddlIsActive">Select Vendor Status</label>
+                <select id="ddlIsActive" formControlName="vendorIsActive" name="isActive" class="form-control">
+                <option value="True">Activated</option>
+                <option value="False">Deactivated</option>
+                </select>
+        </div>
+    </div>
+</div>
+
+
+    <input type="button" class="btn btn-primary" [disabled]="!addVendorForm.valid" value="Save Vendor" (click)="saveVendor()"/>
+</form>
+
+<!-- <form #addVendor="ngForm" (submit) ="insertVendor(addVendor)" >
     <div class="row">
         <div class="col-4">
             <div class="mb-3">
@@ -62,4 +119,4 @@
       
     <input type="submit" value="Add Vendor" class="btn btn-primary"/>
     <input type="button" value="Cancel" class="btn btn-danger" (click)="resetPage(addVendor)"/>
-</form>
+</form> -->

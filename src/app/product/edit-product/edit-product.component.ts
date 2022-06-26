@@ -1,14 +1,15 @@
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../../services/product.service';
-import { NgForm, FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/interface/product';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class EditProductComponent implements OnInit {
 
   addProductForm:FormGroup;
   product:Product={
@@ -28,8 +29,12 @@ export class AddProductComponent implements OnInit {
   isSuccessful:boolean=false;
 
 
-  constructor(private builder:FormBuilder, private productService:ProductService) 
+  constructor(private activatedRoute:ActivatedRoute,private builder:FormBuilder, private productService:ProductService) 
   {
+    this.activatedRoute.params.subscribe(d=>{
+      this.product.id=d["id"];
+    });
+
     this.addProductForm=builder.group({
       "vendorName":new FormControl('',[]),
       "categoryName":new FormControl('',[]),
@@ -52,7 +57,7 @@ export class AddProductComponent implements OnInit {
   //   form.reset();
   // }
 
-  saveProduct(){
+  updateProduct(){
     this.product.vendorName=this.addProductForm.value["vendorName"];
     this.product.categoryName=this.addProductForm.value["productName"];
     this.product.unitPrice=this.addProductForm.value["productUnitPrice"];
@@ -60,7 +65,7 @@ export class AddProductComponent implements OnInit {
     this.product.unitsInStock=this.addProductForm.value["productUnitsInStock"];
     this.product.unitsOnOrder=this.addProductForm.value["productUnitsOnOrder"];
     this.product.discontinued=this.addProductForm.value["productDiscontinued"];
-    this.productService.addProduct(this.product).subscribe((data:any)=>{
+    this.productService.updateProduct(this.product).subscribe((data:any)=>{
       this.isSuccessful=true;
     });
   }

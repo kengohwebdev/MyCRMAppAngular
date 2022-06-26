@@ -22,9 +22,9 @@ export class EditCategoryComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute, private builder:FormBuilder, private categoryService:CategoryService) 
   {
-    this.activatedRoute.params.subscribe(d=>{
-      this.category.id=d["id"]      
-    })
+    activatedRoute.params.subscribe(d=>{
+      this.category.id=d["id"];      
+    });
     this.addCategoryForm = builder.group({
       // "categoryId":new FormControl('',[]),
       "categoryName":new FormControl('',[]),

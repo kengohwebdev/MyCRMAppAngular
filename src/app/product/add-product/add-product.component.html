@@ -1,11 +1,91 @@
-<form #addProducts="ngForm" (submit) ="insertProduct(addProducts)" >
+<div *ngIf="isSuccessful"  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Product has been Saved! </strong>
+    <a [routerLink]="'/product/list'"> Go to Product List</a>
+</div>
+
+
+<h1>Add Product</h1>
+<hr/>
+<form [formGroup]="addProductForm">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Select Vendor</label>
+                <select id="ddlVendorName" formControlName="vendorName" name="vendorName" class="form-control"  >
+                    <option value="0">Select Vendor</option> 
+                    <option value="1">Sun Belt</option>
+                    <option value="2">West Lake</option>  
+                    </select>                
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Select Category</label>
+                <select id="ddlRegionName" formControlName="employeeRegionName" name="regionName" class="form-control"  >
+                    <option value="0">Select Category</option> 
+                    <option value="1">Vegetable</option>
+                    <option value="2">Seafood</option>  
+                    </select>                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Unit Price</label>
+                <input type="text" formControlName="productUnitPrice" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Quantity Per Unit</label>
+                <input type="text" formControlName="ProductQuantityPerUnit" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Units In Stock</label>
+                <input type="text" formControlName="productUnitsInStock" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Units on Order</label>
+                <input type="text" formControlName="productUnitsOnOrder" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label>Reorder Level</label>
+                <input type="text" formControlName="ProductReorderLevel" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mb-3">
+                <label for="ddlDiscontinued">Select Vendor Status</label>
+                <select id="ddlDiscontinued" formControlName="productDiscontinued" name="discontinued" class="form-control">
+                <option value="True">Discontinued</option>
+                <option value="False">Available</option>
+                </select>
+                </div>
+        </div>
+    </div>
+
+    <input type="button" class="btn btn-primary" [disabled]="!addProductForm.valid" value="Save Product" (click)="saveProduct()"/>
+</form>
+
+
+<!-- <form #addProducts="ngForm" (submit) ="insertProduct(addProducts)" >
     <div class="row">
         <div class="col-4">
             <div class="mb-3">
                 <label for="txtName">Name</label>
                 <input id="txtName" [(ngModel)]="product.name" name="name" class="form-control"/>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="col-4">
             <div class="mb-3">
                 <label for="txtVendorId">VendorId</label>
@@ -18,7 +98,7 @@
                 <input id="txtCategoryId" [(ngModel)]="product.categoryId" name="categoryId" class="form-control"/>
             </div>
         </div> -->
-    </div>
+    <!-- </div>
 
     <div class="row">
         <div class="col-4">
@@ -69,4 +149,4 @@
       
     <input type="submit" value="Add Product" class="btn btn-primary"/>
     <input type="button" value="Cancel" class="btn btn-danger" (click)="resetPage(addProducts)"/>
-</form>
+</form> -->
